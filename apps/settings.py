@@ -126,6 +126,7 @@ REST_FRAMEWORK = {
 }
 
 REST_AUTH = {
+    'REGISTER_SERIALIZER': 'apps.users.serializers.CustomRegisterSerializer', 
     'USE_JWT': True,
     'JWT_AUTH_COOKIE': 'auth-token',
     'JWT_AUTH_REFRESH_COOKIE': 'refresh-token',
@@ -145,6 +146,14 @@ SIMPLE_JWT = {
 }
 
 CORS_ALLOW_CREDENTIALS = True
+
+AUTH_USER_MODEL = "users.User"
+
+# Additional configurations for allauth:
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/

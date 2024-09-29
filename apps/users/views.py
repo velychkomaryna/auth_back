@@ -7,4 +7,4 @@ from django.contrib.auth import get_user_model
 class PrivateView(APIView):
 
     def get(self, request):
-        return Response({"message": "User is authenticated", "user": request.user.username})
+        return Response({"message": "User is authenticated", "user": request.user.email})
